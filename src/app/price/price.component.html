@@ -1,0 +1,182 @@
+<br>
+
+<div class="container">
+    <h2 class="page-header"> Rate Review</h2>
+<form>
+        <div class="form-group" >
+            <label> Description</label>
+            <input class="form-control" type="text" ngModel name="description"
+             #description="ngModel" required/>
+            <div *ngIf="description.touched && description.invalid" class="alert alert-danger"> 
+                please enter Description
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">SIC Code</label>
+            <select  class="form-control" id="exampleFormControlSelect2">
+              <option selected>1234 Resturant</option>
+              <option>23414 Resturant</option>
+              <option>35242 Resturant</option>
+              <option>32144 Resturant</option>
+              <option>50012 Resturant</option>
+            </select>
+          </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                    </div>
+                <input class="form-control" type="number" [(ngModel)]="fNum" ngModel name="num" #num="ngModel" [rangeLength]="[2, 9]" digits required/>
+               </div>
+                <p class="alert alert-danger" *ngIf="num.errors?.rangeLength && num.errors?.digits">should be a number </p>
+            </div> 
+            <div class="form-group col-4">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">#</div>
+                    </div>
+                <input class="form-control" type="number" [(ngModel)]="frate" ngModel name="field" #field="ngModel" digits required/>
+               </div>
+                <p class="alert alert-danger" *ngIf="field.errors?.digits">should be a number </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                    </div>
+                <input class="form-control" required type="number" [(ngModel)]="SNum" ngModel name="numone" #numone="ngModel" [rangeLength]="[2, 9]" digits/>
+                </div>
+                <p class="alert alert-danger" *ngIf="numone.errors?.rangeLength && numone.errors?.digits">should be a number </p>
+            </div> 
+            <div class="form-group col-4">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">#</div>
+                    </div>
+                <input class="form-control" required type="number" [(ngModel)]="srate" ngModel name="fieldone" #fieldone="ngModel" digits/>
+                </div>
+                <p class="alert alert-danger" *ngIf="fieldone.errors?.digits">should be a number </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                    </div>
+                <input class="form-control" required type="number" [(ngModel)]="tNum" ngModel name="numtwo" #numtwo="ngModel" [rangeLength]="[2, 9]" digits/>
+                </div>
+                <p class="alert alert-danger" *ngIf="numtwo.errors?.rangeLength && numtwo.errors?.digits">should be a number </p>
+            </div> 
+            <div class="form-group col-4">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">#</div>
+                    </div>
+                <input class="form-control" required type="number" [(ngModel)]="trate" ngModel name="fieldtwo" #fieldtwo="ngModel" digits/>
+                </div>
+                <p class="alert alert-danger" *ngIf="fieldtwo.errors?.digits">should be a number </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                    </div>
+                    <input class="form-control" required type="number" [(ngModel)]="rNum" ngModel name="numfour" #numfour="ngModel" [rangeLength]="[2, 9]" digits/>
+                </div>  
+                <p class="alert alert-danger" *ngIf="numfour.errors?.rangeLength && numfour.errors?.digits">should be a number </p>
+            </div> 
+            <div class="form-group col-4">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">#</div>
+                    </div>
+                    <input class="form-control" required type="number" [(ngModel)]="rrate" ngModel name="fieldfour" #fieldfour="ngModel" digits/>
+                </div>
+                <p class="alert alert-danger" *ngIf="fieldfour.errors?.digits">should be a number </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label> Total Volume</label><br>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                    </div>
+                    <textarea  cols="20" rows="1"  class="form-control" disabled> {{fNum+SNum+tNum+rNum}}</textarea>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                <label> Total Transactions</label><br>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">#</div>
+                    </div>
+                    <textarea  cols="20" rows="1"  class="form-control" disabled> {{frate+srate+trate+rrate}}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label> AVG Ticket</label><br>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                    </div>
+                    <textarea  cols="20" rows="1"  class="form-control" disabled> {{ (fNum+SNum+tNum+rNum) / (frate+srate+trate+rrate) }}</textarea>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                <label> Current Rate</label><br>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">%</div>
+                    </div>
+                    <textarea  cols="20" rows="1"  class="form-control" disabled> 3.56 </textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label>  Current Fees</label><br>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                    </div>
+                    <textarea  cols="20" rows="1"  class="form-control" disabled>{{ ((fNum+SNum+tNum+rNum) * 3.56) /100 }}</textarea>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                <label> Current AMEX Fees</label><br>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">$</div>
+                    </div>
+                    <textarea  cols="20" rows="1"  class="form-control" disabled> 798.43</textarea>
+                </div>
+            </div>
+        </div>
+        
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+</div>
+
+
+<!-- 
+    Current Fees
+    {{ ((fNum+SNum+tNum+rNum) * 3.56) /100 }}
+
+    avg
+    {{ (fNum+SNum+tNum+rNum) / (frate+srate+trate+rrate) }}
+
+    total trans
+     {{frate+srate+trate+rrate}}
+
+     total vol
+     {{fNum+SNum+tNum+rNum}}
+ -->
